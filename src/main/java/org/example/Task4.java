@@ -25,7 +25,7 @@ public class Task4 {
         sum++;
       }
     }
-    System.out.println((double) sum/n * cubeVolume);
+    System.out.println("Об'єм: " + (double) sum/n * cubeVolume);
   }
 
   public static void main(String[] args) {

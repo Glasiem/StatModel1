@@ -18,8 +18,8 @@ public class Task1 {
         heads++;
       }
     }
-    System.out.println("Heads: " + heads);
-    System.out.println("Tails: " + tails);
+    System.out.println("Орел: " + heads);
+    System.out.println("Решка: " + tails);
   }
 
   public static void diceRoll(int n){

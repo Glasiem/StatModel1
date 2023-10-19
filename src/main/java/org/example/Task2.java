@@ -10,6 +10,33 @@ public class Task2 {
 
   static List<String> words = new ArrayList<String>();
 
+  public static void guessTheNum(){
+    Scanner scanner = new Scanner(System.in);
+    int tries = 0;
+    Random random = new Random();
+    System.out.println("Вам треба відгадати число від 1 до 100");
+    int randomNum = random.nextInt(100)+1;
+    do{
+      System.out.println("Відгадуйте число: ");
+      String playerGuess = scanner.nextLine().trim();
+      try{
+        if (randomNum == Integer.parseInt(playerGuess)){
+          tries++;
+          break;
+        } else if (randomNum > Integer.parseInt(playerGuess)){
+          System.out.println("Загадане число більше");
+          tries++;
+        } else {
+          System.out.println("Загадане число менше");
+          tries++;
+        }
+      }catch (Exception e){
+        System.out.println("введено неправильні дані");
+      }
+    }while (true);
+    System.out.println("Правильно! Ви вгадали число за " + tries + " спроб!");
+  }
+
 
   public static void guessTheWord(){
     Scanner scanner = new Scanner(System.in);
@@ -23,10 +50,10 @@ public class Task2 {
     int randomIndex = random.nextInt(words.size());
     String chosenWord = words.get(randomIndex);
     do{
-      System.out.print("Enter your guess: ");
+      System.out.print("Введіть відгадку: ");
       String playerGuess = scanner.nextLine().trim();
       if (chosenWord.toLowerCase().equals(playerGuess.toLowerCase())){
-        System.out.println("You won!");
+        System.out.println("Ви виграли!");
         return;
       }
       else {
@@ -49,5 +76,6 @@ public class Task2 {
     words.add("Ice Cream");
     words.add("Jellyfish");
     guessTheWord();
+    guessTheNum();
   }
 }
